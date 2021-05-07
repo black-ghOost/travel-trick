@@ -2,7 +2,8 @@ import {
     BrowserRouter as Router,
     Link,
 } from "react-router-dom";
-import logo from '../../../../public/assets/Logo.png';
+import logo from '../../../assets/Logo.png';
+import './Header.css';
 
 export default function Header() {
     return (
