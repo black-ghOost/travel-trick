@@ -1,39 +1,35 @@
-import {
-    BrowserRouter as Router,
-    Link,
-} from "react-router-dom";
-import logo from '../../../assets/Logo.png';
+import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
+    const location = useLocation();
     return (
-        <div>
-            <Router>
-                <div>
-                    <nav>
-                    <ul style={{listStyleType:'none', display: 'flex'}}>
-                        <li>
-                            <Link to="/"><img src={logo} alt=""/></Link>
-                        </li>
-                        <li>
-                            <Link to="/" className="navLink"><input style={{fontSize:'15px', padding:'15px', border:'none', borderRadius:'5px'}} type="text" placeholder="Search your destination"></input></Link>
-                        </li>
-                        <li>
-                            <Link to="/news" className="navLink">News</Link>
-                        </li>
-                        <li>
-                            <Link to="/destination" className="navLink">Destination</Link>
-                        </li>
-                        <li>
-                            <Link to="/blog" className="navLink">Blog</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact" className="navLink">Contact</Link>
-                        </li>
-                    </ul>
-                    </nav>
-                </div>
-            </Router>
-        </div>
+        <Container>
+            <Navbar expand="lg" className="pt-4 text-primary">
+                <Navbar.Brand as={Link} to="/">
+                    <img
+                        src="https://i.ibb.co/FHBKmhh/travel-logo.png"
+                        width="150"
+                        height="80"
+                        className={`d-inline-block align-top ${location.pathname === '/' || location.pathname.includes("/booking/") ? 'logo' : ''}`}
+                        alt="React Bootstrap logo"
+                    />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Form inline className="m-auto navBarSearchForm pl-3">
+                        <FormControl type="text" placeholder="Search your Destination..." className={`mr-sm-2 ${location.pathname === '/' || location.pathname.includes("/booking/") ? 'search-input' : ''}`} />
+                    </Form>
+                    <Nav className={`ml-auto ${location.pathname === '/' || location.pathname.includes("/booking/") ? 'header-nav2' : 'header-nav'}`}>
+                        <Nav.Link as={Link} className="px-4" to="/">News</Nav.Link>
+                        <Nav.Link as={Link} className="px-4" to="/">News</Nav.Link>
+                        <Nav.Link as={Link} className="px-4" to="/">Destination</Nav.Link>
+                        <Nav.Link as={Link} className="px-4" to="/">Blog</Nav.Link>
+                        <Nav.Link as={Link} className="px-4" to="/">Contact</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        </Container>
     );
 }
