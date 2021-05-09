@@ -23,7 +23,6 @@ export default function Header() {
                     </Form>
                     <Nav className={`ml-auto ${location.pathname === '/' || location.pathname.includes("/booking/") ? 'header-nav2' : 'header-nav'}`}>
                         <Nav.Link as={Link} className="px-4" to="/">News</Nav.Link>
-                        <Nav.Link as={Link} className="px-4" to="/">News</Nav.Link>
                         <Nav.Link as={Link} className="px-4" to="/">Destination</Nav.Link>
                         <Nav.Link as={Link} className="px-4" to="/">Blog</Nav.Link>
                         <Nav.Link as={Link} className="px-4" to="/">Contact</Nav.Link>

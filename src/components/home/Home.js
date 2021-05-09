@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Button, Col, Container, Jumbotron, Row } from 'react-bootstrap';
 import locations from '../../fakeData/locations';
 import PlaceItem from './PlaceItem';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
@@ -12,16 +12,15 @@ import './Home.css';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 export default function Home() {
-  const history = useHistory();
 
 	return (
   <Container className="pr-0 mt-5 pt-5">
     <Row>
       <Col sm={4} xl={4}>
         <Jumbotron className="bg-transparent px-0">
-          <h1 className="font-weight-bold">{booking.name}</h1>
-          <p>{booking.description?.slice(0, 150)} ...</p>
-          <Button className="px-4 py-2" variant="warning" onClick={() => history.push(`/booking/${booking.id}`)}>Booking <BsArrowRight /> </Button>
+          <h1 className="font-weight-bold"></h1>
+          <p>...</p>
+          <Button className="px-4 py-2" variant="warning" >Booking </Button>
         </Jumbotron>
       </Col>
       <Col sm={8} xl={8}>
@@ -34,14 +33,10 @@ export default function Home() {
             disableOnInteraction: false
           }}
           loop={true}
-          onClick={(swiper) => onClickHandler(swiper)}
-          onSlideChange={(swiper) => setSlideIndex(swiper.realIndex)}
         >
           {locations.map(location => {
             return (<SwiperSlide key={location.id}>
-              {({ isActive }) => (
-                <LocationItem isActive={isActive} location={location} />
-              )}
+              
             </SwiperSlide>)
           })}
         </Swiper>
