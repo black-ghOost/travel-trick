@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getCurrentUser, handleSignOut } from './components/login/HandleLogin';
 import Login from './components/login/Login';
 import Booking from './components/booking/Booking';
@@ -10,7 +10,7 @@ import Search from './components/search/Search';
 
 export const UserContext = createContext();
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
   const [user, setUser] = useState(null);
   const [bookingInfo, setBookingInfo] = useState({});
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
   }
   return (
     <UserContext.Provider value={{ user, setUser, bookingInfo, setBookingInfo, signOUtUser }}>
-      <div className={`${location.pathname === '/' || location.pathname.includes('booking') ? "home" : ""}`}>
+      <Router>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -35,7 +35,7 @@ function App() {
           </PrivateRoute>
           <Route path="/login" component={Login} />
         </Switch>
-      </div>
+      </Router>
     </UserContext.Provider>
   );
 }
