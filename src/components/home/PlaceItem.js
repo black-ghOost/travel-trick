@@ -1,10 +1,15 @@
-export default function PlaceItem({ location, isActive }) {
-    const { name, image } = location;
+import React from 'react';
+import { Button, Card } from 'react-bootstrap';
+
+const LocationItem = ({ location, isActive }) => {
+  const { name, image } = location;
 
   return (
-    <div className={`bg-transparent ${isActive ? 'active' : 'not-active'}`}>
-      <img variant="top" className="img-fluid" src={image} alt="places" />
-      <button className="bg-transparent booking">{name}</button>
-    </div>
+    <Card className={`bg-transparent ${isActive ? 'active' : 'not-active'}`}>
+      <Card.Img variant="top" className="img-fluid" src={image} />
+      <Button className="bg-transparent booking">{name}</Button>
+    </Card>
   );
-}
+};
+
+export default LocationItem;
