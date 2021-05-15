@@ -1,7 +1,3 @@
-.logo {
-  filter: contrast(0) brightness(250%);
-}
-
 .navBarSearchForm {
   margin: 0 auto;
   display: grid !important;
@@ -9,27 +5,22 @@
 }
 
 .search-input {
-  background-color: rgba(255, 255, 236, 0.3) !important;
-  color: #fff !important;
-  border: 1px solid #fff !important;
+  background-color: rgba(53, 53, 52, 0.3) !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
   padding: 6px 20px !important;
 }
 
 .search-input:focus {
-  background-color: rgba(255, 255, 236, 0.3) !important;
-  border-color: #fff !important;
-  outline: none !important;
+  background-color: rgba(27, 27, 26, 0.3) !important;
   box-shadow: 0 0 0 0.2rem rgba(238, 238, 248, 0.952);
 }
 
 .search-input::placeholder {
-  color: #fff !important;
+  color: rgb(8, 8, 8) !important;
   opacity: 1;
 }
 
 .ml-auto.header-nav.navbar-nav a {
   color: #000000;
-}
-.ml-auto.header-nav2.navbar-nav a {
-  color: #fff;
 }

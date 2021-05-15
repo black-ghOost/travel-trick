@@ -113,7 +113,7 @@ const Login = () => {
         <Col sm={8} className="m-auto" xl={6} md="8">
           <Card>
             <Card.Body>
-              <h2 className="py-1">{newUser ? 'Create an account' : 'Login'}</h2>
+              <h2 className="py-1 text-center">{newUser ? 'Create an account' : 'Login'}</h2>
               <Form autoComplete="off" onSubmit={submitHandler}>
                 {newUser && (
                   <InputItem value={firstName}
@@ -171,9 +171,9 @@ const Login = () => {
               </p>
             </Card.Body>
           </Card>
-          <div className="orr mt-2 w-75">Or</div>
-          <div className="google-sign-in mt-2 w-75" onClick={googleSignIn}>
-            <span> Continue with google <img className="google" src={g} alt="google" /></span>
+          <hr/>
+          <div className="google-sign-in mt-2 w-75 text-center mb-5" onClick={googleSignIn} style={{cursor:'pointer'}}>
+            <span><img className="google" src={g} alt="google" />continue with Google</span>
           </div>
         </Col>
       </Row>
