@@ -5,6 +5,7 @@ import { UserContext } from '../../App';
 import locations from '../../fakeData/locations';
 import HotelItem from './HotelItem';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {API_KEY} from './config.js';
 
 const Search = () => {
   const { id } = useParams();
@@ -30,6 +31,10 @@ const Search = () => {
     lng: 90.406707
   }
 
+  // const api = process.env.API_KEY;
+  // console.log(process.env.API_KEY);
+
+  const api = API_KEY;
   return (
     <Container className="pt-5">
       <Row>
@@ -48,7 +53,7 @@ const Search = () => {
         <Col sm={6} xl={5} className="mt-4">
           <Card className="mt-5">
             <Card.Body>
-              <LoadScript googleMapsApiKey="AIzaSyCE1oI9UN7X2VYS0UFVRKBdWd3TzyxT-tE">
+              <LoadScript googleMapsApiKey={api}>
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={center}

@@ -43,7 +43,7 @@ function App() {
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
           </Switch>
-          </Router>
+        </Router>
     </UserContext.Provider>
   );
 }
