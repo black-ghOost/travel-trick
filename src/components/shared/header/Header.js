@@ -10,7 +10,7 @@ const Header = () => {
     <Container>
       <Navbar className="pt-4 text-primary">
         <Navbar.Brand as={Link} to="/">
-          <h1>Star Travel</h1>
+          <h1>Travel Trick</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
