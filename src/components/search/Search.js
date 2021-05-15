@@ -16,14 +16,19 @@ const Search = () => {
   }, [id])
 
   const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: '100%',
+    height: '500px'
   };
   
   const center = {
-    lat: -3.745,
-    lng: -38.523
+    lat: 23.73348,
+    lng: 90.406707
   };
+
+  const position ={
+    lat: 23.73348,
+    lng: 90.406707
+  }
 
   return (
     <Container className="pt-5">
@@ -47,8 +52,9 @@ const Search = () => {
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={center}
-                  zoom={10}
+                  zoom={12}
                 >
+                  <Marker position={position} />
                 </GoogleMap>
               </LoadScript>
             </Card.Body>
