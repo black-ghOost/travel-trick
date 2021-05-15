@@ -7,10 +7,14 @@ import Header from './components/shared/header/Header';
 import Home from './components/home/Home';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import Search from './components/search/Search';
+import News from './components/news/News';
+import Blog from './components/blog/Blog';
+import Contact from './components/contact/Contact';
+import './App.css';
 
 export const UserContext = createContext();
+
 function App() {
-  // const location = useLocation();
   const [user, setUser] = useState(null);
   const [bookingInfo, setBookingInfo] = useState({});
   useEffect(() => {
@@ -23,19 +27,23 @@ function App() {
       setUser(res)
     })
   }
+
   return (
     <UserContext.Provider value={{ user, setUser, bookingInfo, setBookingInfo, signOUtUser }}>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/booking/:id" component={Booking} />
-          <PrivateRoute path="/search/:id">
-            <Search />
-          </PrivateRoute>
-          <Route path="/login" component={Login} />
-        </Switch>
-      </Router>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/booking/:id" component={Booking} />
+            <PrivateRoute path="/search/:id">
+              <Search />
+            </PrivateRoute>
+            <Route path="/login" component={Login} />
+            <Route path="/news" component={News} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/blog" component={Blog} />
+          </Switch>
+          </Router>
     </UserContext.Provider>
   );
 }

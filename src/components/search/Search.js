@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import locations from '../../fakeData/locations';
 import HotelItem from './HotelItem';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Search = () => {
   const { id } = useParams();
@@ -13,6 +14,16 @@ const Search = () => {
     const bookingLocation = locations.find(location => location.id.toString() === id)
     setHotels(previousState => ([...previousState, ...bookingLocation.hotels]))
   }, [id])
+
+  const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: -3.745,
+    lng: -38.523
+  };
 
   return (
     <Container className="pt-5">
@@ -32,7 +43,14 @@ const Search = () => {
         <Col sm={6} xl={5} className="mt-4">
           <Card className="mt-5">
             <Card.Body>
-              <h2>Maps here</h2>
+              <LoadScript googleMapsApiKey="AIzaSyCE1oI9UN7X2VYS0UFVRKBdWd3TzyxT-tE">
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={center}
+                  zoom={10}
+                >
+                </GoogleMap>
+              </LoadScript>
             </Card.Body>
           </Card>
         </Col>
